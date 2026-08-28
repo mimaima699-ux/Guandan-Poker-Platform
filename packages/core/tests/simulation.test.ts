@@ -61,6 +61,7 @@ function checkInvariants(state: GameState): void {
 }
 
 describe('仿真：随机机器人整场对打', () => {
+  // 200 局随机对打 + 每步不变量校验，CPU 占用较高，与其它套件并行时易触碰 5s 默认超时，故单独放宽到 30s。
   it('200 局全部终止且不变量成立', () => {
     const rng = mulberry32(20260826);
     let hands = 0;
@@ -87,7 +88,7 @@ describe('仿真：随机机器人整场对打', () => {
     // 统计合理性：200 局至少打完若干场
     expect(hands).toBeGreaterThanOrEqual(MAX_HANDS - 4);
     expect(matches).toBeGreaterThan(0);
-  });
+  }, 30_000);
 
   it('viewOf 不泄露他人手牌', () => {
     const rng = mulberry32(99);

@@ -8,9 +8,11 @@ import { z } from 'zod';
 import { PROTOCOL_VERSION, type AdvisorConfig, type BotLevel, type ClientMsg, type SeatId, type ServerMsg } from '@guandan/core';
 import { Room, genRoomId, type ClientConn, type RoomOptions } from './room';
 
-// __dirname：兼容 ESM（tsx/dev）与 CJS（esbuild 打包进 Electron）
-const __dirname = typeof __dirname !== 'undefined'
-  ? __dirname
+// __dirname：兼容 ESM（tsx/dev）与 CJS（esbuild 打包进 Electron）。
+// 注意：不能用 `const __dirname = typeof __dirname ...` —— const 声明会在其
+// 初始化表达式内对同名绑定触发 TDZ，typeof 也会抛 ReferenceError，故改读全局引用。
+const __dirname: string = typeof (globalThis as { __dirname?: string }).__dirname !== 'undefined'
+  ? (globalThis as { __dirname: string }).__dirname
   : fileURLToPath(new URL('.', import.meta.url));
 /** 客户端静态文件目录：优先用环境变量（Electron 打包时指向 resources/client-dist），否则开发相对路径 */
 const CLIENT_DIST = process.env.GUANDAN_CLIENT_DIST
