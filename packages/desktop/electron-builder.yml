@@ -1,0 +1,46 @@
+appId: com.guandan.app
+productName: 掼蛋
+copyright: Copyright © 2026
+
+directories:
+  output: release
+  buildResources: build
+
+# 主进程入口
+extraMetadata:
+  main: dist/main.cjs
+
+files:
+  - dist/main.cjs
+  - dist/server.cjs
+  - package.json
+  - "!**/*.map"
+
+# 客户端静态文件（服务器托管）打包进 resources
+extraResources:
+  - from: ../../packages/client/dist
+    to: client-dist
+    filter: ['**/*']
+
+# 运行时 node_modules：ws（external 出来的）
+# electron-builder 会自动带上 dependencies
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  # icon: build/icon.ico  # 暂用 electron 默认图标；后续放 256x256 .ico 到 build/
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: 掼蛋
+  uninstallDisplayName: 掼蛋
+  installerLanguages: [zh_CN]
+  language: 2052
+
+# 不打包这些开发依赖
+buildDependenciesFromSource: false

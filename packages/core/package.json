@@ -1,0 +1,19 @@
+{
+  "name": "@guandan/core",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsc -p tsconfig.json",
+    "sim": "tsx scripts/sim.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0",
+    "fast-check": "^4.0.0",
+    "tsx": "^4.20.0"
+  }
+}

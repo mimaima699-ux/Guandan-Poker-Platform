@@ -1,0 +1,27 @@
+{
+  "name": "@guandan/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "掼蛋 Windows 桌面版（Electron）",
+  "main": "dist/main.cjs",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "concurrently -k -n vite,server,electron -c green,cyan,magenta \"pnpm --filter @guandan/client dev\" \"tsx watch ../server/src/index.ts\" \"wait-on tcp:5173 && cross-env GUANDAN_DEV=1 electron .\"",
+    "dist": "electron-builder --config electron-builder.yml"
+  },
+  "dependencies": {
+    "@guandan/core": "workspace:*",
+    "@guandan/server": "workspace:*",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "cross-env": "^7.0.3",
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "wait-on": "^8.0.0"
+  }
+}

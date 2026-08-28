@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.vite/
+coverage/
+.DS_Store
+
+# Electron 桌面版构建产物
+packages/desktop/release/
+packages/desktop/dist/
+
+# Claude Code 本地工作区（记忆/计划，不进仓库）
+.claude/

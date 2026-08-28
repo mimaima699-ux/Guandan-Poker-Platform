@@ -1,0 +1,26 @@
+{
+  "name": "guandanpoker",
+  "private": true,
+  "packageManager": "pnpm@10.34.5",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @guandan/client --filter @guandan/server dev",
+    "dev:client": "pnpm --filter @guandan/client dev",
+    "dev:server": "pnpm --filter @guandan/server dev",
+    "build": "pnpm --filter @guandan/core build && pnpm --filter @guandan/client build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r build",
+    "sim": "pnpm --filter @guandan/core sim",
+    "desktop:build": "pnpm build && pnpm --filter @guandan/desktop build",
+    "desktop:dist": "pnpm desktop:build && pnpm --filter @guandan/desktop dist",
+    "desktop:dev": "pnpm --filter @guandan/desktop dev"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron",
+      "esbuild"
+    ]
+  }
+}
