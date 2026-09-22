@@ -1,6 +1,10 @@
 # 掼蛋 · Guandan
 
+[English](README.en.md) | 简体中文
+
 一个用 TypeScript 实现的完整掼蛋（Guandan）游戏：引擎、AI、Web 客户端、联机服务器，以及可打包成 Windows 安装包的桌面版。
+
+> **English abstract**: A complete implementation of the Chinese four-player partnership card game *Guandan* in TypeScript — a full rules engine (shape recognition, tribute, wild cards, level progression), a four-tier bot AI featuring Monte Carlo rollout, a React web client, a WebSocket server for LAN multiplayer, and an Electron-packaged Windows desktop app. Optional local-LLM advisor via Ollama. See the [English README](README.en.md) for details.
 
 > 掼蛋是流行于中国的四人扑克牌游戏，两两一队，以打升级为核心玩法。本仓库实现了完整的规则、牌型识别、进贡还贡、升级体系，以及四个难度的电脑 AI。
 

@@ -1,5 +1,7 @@
 # Guandan
 
+English | [简体中文](README.md)
+
 A complete implementation of **Guandan** (掼蛋) — the popular Chinese four-player trick-taking card game — in TypeScript: a rules engine, AI, web client, online server, and a Windows desktop app.
 
 > Guandan is a four-player partnership shedding card game centered on a level-rank progression system. This repo implements the full ruleset, shape recognition, tribute/return, wild cards (逢人配), level progression, and four difficulty tiers of computer AI.
